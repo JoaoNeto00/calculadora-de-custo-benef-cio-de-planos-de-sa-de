@@ -1,7 +1,8 @@
 function calcular() {
-    calculoOperadoraA()
+  calculoOperadoraA();
+  calculoOperadoraB();
+  mostrarDados()
 }
-
 
 function capturarDados() {
   const taltura = document.getElementById("altura");
@@ -33,8 +34,8 @@ function calculoOperadoraA() {
   const planoStandard = (150 + idade * 15) * (imc / 10);
   const planoPremium = (200 - imc * 10 + idade * 20) * (imc / 10);
 
-  mostrarOpA(planoBasico,planoStandard,planoPremium)
-  
+  mostrarOpA(planoBasico, planoStandard, planoPremium);
+
   return { planoBasico, planoStandard, planoPremium };
 }
 
@@ -43,8 +44,10 @@ function calculoOperadoraB() {
   const ftComorbidade = fatorComorbidade(imc);
 
   const planoBasico = 100 + ftComorbidade * 10 * (imc / 10);
-  const planoStandard = (150 + fatorComorbidade * 15) * (imc / 10);
+  const planoStandard = (150 + (ftComorbidade * 15)) * (imc / 10);
   const planoPremium = (200 - imc * 10 + ftComorbidade * 20) * (imc / 10);
+
+  mostrarOpB(planoBasico, planoStandard, planoPremium);
 
   return { planoBasico, planoStandard, planoPremium };
 }
@@ -65,20 +68,56 @@ function fatorComorbidade(imc) {
   }
 }
 
-function mostrar(resposta) {
-  const resultado = document.getElementById("resultado");
-  resultado.innerHTML = resposta;
+function mostrarDados() {
+  const imc = calculoIMC()
+  const ftComorbidade = fatorComorbidade(imc)
+
+  const localIMC = document.getElementById('res_imc')
+  localIMC.innerHTML = `IMC - ${imc}`
+  const localftComorbidade= document.getElementById('res_ftComorbidade')
+  localftComorbidade.innerHTML = `comorbidade - ${ftComorbidade}`
 }
-function mostrarOpA(planoBasico,planoStandard,planoPremium){
 
-  
+function mostrarOpA(planoBasico, planoStandard, planoPremium) {
+  const plnBasico = planoBasico.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+  const plnStandard = planoStandard.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+  const plnPremium = planoPremium.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
 
-  
-  const localPlanoBasico = document.getElementById("res_basico")
-  localPlanoBasico.innerHTML =  `plano basico - ${planoBasico.toFixed(2).replace('.',',')}`
-  const localPlanoStandard = document.getElementById("res_standard")
-  localPlanoStandard.innerHTML = `plano standard - ${planoStandard.toFixed(2).replace('.',',')}`
-  const localPlanoPremium = document.getElementById("res_premium")
-  localPlanoPremium.innerHTML = `plano premium - ${planoPremium.toFixed(2).replace('.',',')}`
+  const localPlanoBasico = document.getElementById("res_basico");
+  localPlanoBasico.innerHTML = `plano basico - ${plnBasico}`;
+  const localPlanoStandard = document.getElementById("res_standard");
+  localPlanoStandard.innerHTML = `plano standard - ${plnStandard}`;
+  const localPlanoPremium = document.getElementById("res_premium");
+  localPlanoPremium.innerHTML = `plano premium - ${plnPremium}`;
+}
 
+function mostrarOpB(planoBasico, planoStandard, planoPremium) {
+  const plnBasico = planoBasico.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+  const plnStandard = planoStandard.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+  const plnPremium = planoPremium.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  const localPlanoBasico = document.getElementById("res_basico_b");
+  localPlanoBasico.innerHTML = `plano basico - ${plnBasico}`;
+  const localPlanoStandard = document.getElementById("res_standard_b");
+  localPlanoStandard.innerHTML = `plano standard - ${plnStandard}`;
+  const localPlanoPremium = document.getElementById("res_premium_b");
+  localPlanoPremium.innerHTML = `plano premium - ${plnPremium}`;
 }
