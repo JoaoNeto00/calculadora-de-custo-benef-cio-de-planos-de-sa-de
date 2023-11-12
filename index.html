@@ -1,14 +1,50 @@
 <!DOCTYPE html>
-<html lang="UTF-8">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/style.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/style.css" />
     <script src="assets/script.js"></script>
     <title>Calculadora de P.S</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <section class="d-flex justify-content-center align-items-center h-100vh bg-danger">
+      <div class="row border p-2">
+
+        <div class="col border">
+
+          <div class="input-group p-1">
+            <input type="text" class="form-control" id="idade" placeholder="idade" required />
+          </div>
+
+          <div class="input-group p-1">
+            <input type="text" class="form-control" id="altura" placeholder="altura" required />
+          </div>
+
+          <div class="input-group p-1">
+            <input type="text" class="form-control" id="peso" placeholder="peso" required />
+          </div>
+
+          <div class="input-group p-1 text-center">
+            <input type="button" class="btn btn-primary" value="calcular" onclick="calcular()" />
+          </div>
+
+        </div>
+
+        <div class="col border">
+
+          <span id="res_basico"></span>
+          <br>
+          <span id="res_standard"></span>
+          <br>
+          <span id="res_premium"></span>
+
+          <span id="resultado"></span>
+
+        </div>
+       
+      </div>
+    </section>
+  </body>
 </html>
