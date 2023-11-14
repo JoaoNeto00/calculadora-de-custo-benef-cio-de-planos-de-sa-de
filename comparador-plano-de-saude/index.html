@@ -29,14 +29,28 @@
                   </div>
 
                   <div class="input-group d-flex justify-content-center">
-                     <input type="button" class="btn btn-warning" value="calcular" onclick="calcular()" />
+                     <input type="button" class="btn btn-warning" id="calcular" value="calcular" onclick="mostrarDiv('painel-body-2')" />
                   </div>
                </form>
             </div>
          </div>
 
-         <div class="row painel-body m-2">
+         <div class="row painel-body-2 m-2">
+
+            <!-- <div class="col painel-secundario border">
+
+                <p id="res_comparador"></p>
+
+                <span id="basico_barato"></span>
+                <br>
+                <span id="standard_barato"></span>
+                <br>
+                <span id="premium_barato"></span>
+
+            </div> -->
+
             <div class="col painel-secundario">
+
                <p id="res_nomeOperadoraA" class="plano-local"></p>
 
                <span id="res_basico" class="plano-local"></span>
@@ -44,16 +58,17 @@
                <span id="res_standard" class="plano-local"></span>
                <br />
                <span id="res_premium" class="plano-local"></span>
-            </div>
 
-            <div class="col painel-secundario">
                <p id="res_nomeOperadoraB" class="plano-local"></p>
                <span id="res_basico_b" class="plano-local"></span>
                <br />
                <span id="res_standard_b" class="plano-local"></span>
                <br />
                <span id="res_premium_b" class="plano-local"></span>
+
             </div>
+
+
          </div>
       </section>
    </body>
