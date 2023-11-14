@@ -1,96 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/style.css" />
-    <script src="assets/script.js"></script>
-    <title>Calculadora de P.S</title>
-  </head>
-  <body>
-    <section class="d-flex justify-content-center align-items-center h-100vh">
-      <div class="row painel-body">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="assets/css/bootstrap.css" />
+      <link rel="stylesheet" href="assets/style.css" />
+      <script src="assets/script.js"></script>
+      <title>Calculadora de P.S</title>
+   </head>
+   <body>
+      <section class="d-flex justify-content-center align-items-center h-100vh">
+         <div class="row painel-body m-3">
+            <div class="col h-100">
+               <form action="">
+                  <div class="input-group">
+                     <input type="text" class="input-form" id="idade" value="20" required />
+                     <label for="idade">idade</label>
+                  </div>
 
-        <div class="col h-100">
-          <form action="">
-          <div class="input-group">
-            <input type="text" class="input-form" id="idade" value="20" required />
-            <label for="idade">idade</label>
-          </div>
+                  <div class="input-group">
+                     <input type="text" class="input-form" id="altura" value="1.6" required />
+                     <label for="altura">altura</label>
+                  </div>
 
-          <div class="input-group">
-            <input type="text" class="input-form" id="altura" value="1.6" required />
-            <label for="altura">altura</label>
-          </div>
+                  <div class="input-group">
+                     <input type="text" class="input-form" id="peso" value="80" required />
+                     <label for="peso">peso</label>
+                  </div>
 
-          <div class="input-group">
-            <input type="text" class="input-form" id="peso" value="80" required />
-            <label for="peso">peso</label>
-          </div>
+                  <div class="input-group d-flex justify-content-center">
+                     <input type="button" class="btn btn-warning" value="calcular" onclick="calcular()" />
+                  </div>
+               </form>
+            </div>
+         </div>
 
-          <div class="input-group d-flex justify-content-center">
-            <input type="button" class="btn btn-primary" value="calcular" onclick="calcular()" />
-          </div>
-        </form>
-        </div>
+         <div class="row painel-body m-2">
+            <div class="col painel-secundario">
+               <p id="res_nomeOperadoraA" class="plano-local"></p>
 
-        <div class="col border painel-secundario m-1">
+               <span id="res_basico" class="plano-local"></span>
+               <br />
+               <span id="res_standard" class="plano-local"></span>
+               <br />
+               <span id="res_premium" class="plano-local"></span>
+            </div>
 
-          <p id="res_nomeOperadoraA"></p>  
-
-          <span id="res_basico" class="plano-local"></span>
-          <br>
-          <span id="res_standard"class="plano-local"></span>
-          <br>
-          <span id="res_premium"class="plano-local"></span>
-
-        </div>
-
-        <div class="col border painel-secundario m-1">
-
-          <p id="res_nomeOperadoraB"></p>  
-          <span id="res_basico_b"class="plano-local"></span>
-          <br>
-          <span id="res_standard_b"class="plano-local"></span>
-          <br>
-          <span id="res_premium_b"class="plano-local"></span>
-
-        </div>
-
-        
-
-        
-      </div>
-    </section>
-  </body>
+            <div class="col painel-secundario">
+               <p id="res_nomeOperadoraB" class="plano-local"></p>
+               <span id="res_basico_b" class="plano-local"></span>
+               <br />
+               <span id="res_standard_b" class="plano-local"></span>
+               <br />
+               <span id="res_premium_b" class="plano-local"></span>
+            </div>
+         </div>
+      </section>
+   </body>
 </html>
- <!-- <div class="col border p-1">
-            
-          <p>plano operadora A</p>  
-
-          <span id="res_basico"></span>
-          <br>
-          <span id="res_standard"></span>
-          <br>
-          <span id="res_premium"></span>
-
-        </div>
-
-        <div class="col border p-1">
-          <p>plano operadora B</p>  
-
-          <span id="res_basico_b"></span>
-          <br>
-          <span id="res_standard_b"></span>
-          <br>
-          <span id="res_premium_b"></span>
-        </div>
-
-        <div class="col border">
-            <p>dados</p>
-            <span id="res_imc"></span>
-            <br>
-            <span id="res_ftComorbidade"></span>
-            <br>
-        </div> -->
