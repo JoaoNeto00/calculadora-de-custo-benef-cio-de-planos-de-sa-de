@@ -11,13 +11,16 @@ body {
    background-position: center;
    background-attachment: fixed;
 }
-
+form {
+   margin:15px
+}
 .section-main {
    display: flex;
    justify-content: center;
    align-items: center;
    height: 100vh;
 }
+
 #painel-comparador,
 #painel-extrato,
 .painel-body {
@@ -25,6 +28,7 @@ body {
    padding: 15px;
    border-radius: 10px;
 }
+
 #painel-comparador,
 #painel-extrato {
    display: none;
@@ -37,15 +41,24 @@ p {
    margin-bottom: 5px;
    margin-top: 7px;
 }
+.valor {
+   left: 10;
+}
+
 
 .plano-local {
    color: #ffff;
 }
 
+#id_nomeComparador{
+   margin-bottom: 15px;
+}
 /* animação e inputs */
 
-.input-form::-webkit-inner-spin-button {
+.input-form::-webkit-inner-spin-button,
+.input-form::-webkit-outer-spin-button{
    -webkit-appearance: none;
+   margin: 0;
 }
 
 .button-form {
@@ -66,6 +79,7 @@ p {
 .input-group {
    margin-bottom: 15px;
    margin-top: 15px;
+   position: relative;
 }
 
 .input-group label {
@@ -88,6 +102,8 @@ p {
    color: #ff9d00;
 }
 
+/* ajuste de tela */
+
 @media (max-width: 720px) {
    #painel-comparador,
    #painel-extrato,
@@ -95,11 +111,21 @@ p {
       padding: 10px;
       border-radius: 10px;
       font-size: 14px;
+      height: 236px;
    }
 }
 @media (max-width: 625px) {
    .section-main .row {
       display: flex;
       flex-direction: column;
+      ;
+      
+   }
+
+   #painel-comparador,
+   #painel-extrato,
+   .painel-body {
+
+      font-size: 16px;
    }
 }

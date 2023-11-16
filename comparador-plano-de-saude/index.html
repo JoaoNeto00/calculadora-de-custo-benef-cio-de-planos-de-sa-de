@@ -10,10 +10,8 @@
    </head>
    <body>
       <section class="section-main">
-
          <div class="row gap-3">
-
-            <div class="col painel-body">
+            <div class="col h-100 painel-body">
                <form action="">
                   <div class="input-group">
                      <input type="number" class="input-form" id="idade" value="20" required />
@@ -21,12 +19,26 @@
                   </div>
 
                   <div class="input-group">
-                     <input type="number" class="input-form" id="altura" value="1.6" required />
+                     <input
+                        type="text"
+                        class="input-form"
+                        id="altura"
+                        value="1.6"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        required
+                     />
                      <label for="altura">altura</label>
                   </div>
 
                   <div class="input-group">
-                     <input type="number" class="input-form" id="peso" value="80" required />
+                     <input
+                        type="text"
+                        class="input-form"
+                        id="peso"
+                        value="80"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                        required
+                     />
                      <label for="peso">peso</label>
                   </div>
 
@@ -41,34 +53,40 @@
                   </div>
                </form>
             </div>
-         
+
             <div class="col" id="painel-comparador">
-               <p id="res_comparador" class="plano-local"></p>
+               <p id="id_nomeComparador" class="plano-local"></p>
 
-               <span id="res_minBasico" class="plano-local"></span>
+               <span id="id_minBasico" class="plano-local"></span>
                <br />
-               <span id="res_minStandard" class="plano-local"></span>
+               <span id="id_minStandard" class="plano-local"></span>
                <br />
-               <span id="res_minPremium" class="plano-local"></span>
+               <span id="id_minPremium" class="plano-local"></span>
+               <br/>
+               <br>
+               <span id="id_imc" class="plano-local"></span>
+               <br/>
+               <span id="id_classificacao" class="plano-local"></span>
+               <br>
+               <span id="id_comorbidade" class="plano-local"></span>
             </div>
-       
+
             <div class="col" id="painel-extrato">
-               <p id="res_nomeOperadoraA" class="plano-local"></p>
+               <p id="id_nomeOperadoraA" class="plano-local"></p>
 
-               <span id="res_basico" class="plano-local"></span>
+               <span id="id_basico" class="plano-local"></span>
                <br />
-               <span id="res_standard" class="plano-local"></span>
+               <span id="id_standard" class="plano-local"></span>
                <br />
-               <span id="res_premium" class="plano-local"></span>
+               <span id="id_premium" class="plano-local"></span>
 
-               <p id="res_nomeOperadoraB" class="plano-local"></p>
-               <span id="res_basico_b" class="plano-local"></span>
+               <p id="id_nomeOperadoraB" class="plano-local"></p>
+               <span id="id_basico_b" class="plano-local"></span>
                <br />
-               <span id="res_standard_b" class="plano-local"></span>
+               <span id="id_standard_b" class="plano-local"></span>
                <br />
-               <span id="res_premium_b" class="plano-local"></span>
+               <span id="id_premium_b" class="plano-local"></span>
             </div>
-
          </div>
       </section>
    </body>
