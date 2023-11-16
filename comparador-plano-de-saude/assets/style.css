@@ -3,9 +3,6 @@
    padding: 0;
    box-sizing: border-box;
 }
-.h-100vh {
-   height: 100vh;
-}
 
 body {
    background-image: url(./images/rainbow-vortex.svg);
@@ -14,33 +11,47 @@ body {
    background-position: center;
    background-attachment: fixed;
 }
-.painel-body-2,
+
+.section-main {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+#painel-comparador,
+#painel-extrato,
 .painel-body {
    border: 2px solid #ff9d00;
    padding: 15px;
    border-radius: 10px;
 }
-
-.painel-body-2 {
-    display: none;
-}
-
-.painel-secundario {
-   min-height: 236px;
+#painel-comparador,
+#painel-extrato {
+   display: none;
+   height: 263px;
    text-align: center;
    text-wrap: nowrap;
 }
 
 p {
    margin-bottom: 5px;
-   margin-top: 10px;
+   margin-top: 7px;
 }
 
 .plano-local {
    color: #ffff;
 }
 
-/* animação e botoes */
+/* animação e inputs */
+
+.input-form::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+}
+
+.button-form {
+   display: flex;
+   justify-content: center;
+}
 
 .input-form {
    border: 0;
@@ -75,4 +86,20 @@ p {
    transform: translateY(-20px);
    font-size: 12px;
    color: #ff9d00;
+}
+
+@media (max-width: 720px) {
+   #painel-comparador,
+   #painel-extrato,
+   .painel-body {
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+   }
+}
+@media (max-width: 625px) {
+   .section-main .row {
+      display: flex;
+      flex-direction: column;
+   }
 }

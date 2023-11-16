@@ -9,48 +9,50 @@
       <title>Calculadora de P.S</title>
    </head>
    <body>
-      <section class="d-flex justify-content-center align-items-center h-100vh">
-         <div class="row painel-body m-3">
-            <div class="col h-100">
+      <section class="section-main">
+
+         <div class="row gap-3">
+
+            <div class="col painel-body">
                <form action="">
                   <div class="input-group">
-                     <input type="text" class="input-form" id="idade" value="20" required />
+                     <input type="number" class="input-form" id="idade" value="20" required />
                      <label for="idade">idade</label>
                   </div>
 
                   <div class="input-group">
-                     <input type="text" class="input-form" id="altura" value="1.6" required />
+                     <input type="number" class="input-form" id="altura" value="1.6" required />
                      <label for="altura">altura</label>
                   </div>
 
                   <div class="input-group">
-                     <input type="text" class="input-form" id="peso" value="80" required />
+                     <input type="number" class="input-form" id="peso" value="80" required />
                      <label for="peso">peso</label>
                   </div>
 
-                  <div class="input-group d-flex justify-content-center">
-                     <input type="button" class="btn btn-warning" id="calcular" value="calcular" onclick="mostrarDiv('painel-body-2')" />
+                  <div class="button-form">
+                     <input
+                        type="button"
+                        class="btn btn-warning"
+                        id="id_calcular"
+                        value="calcular"
+                        onclick="calcular()"
+                     />
                   </div>
                </form>
             </div>
-         </div>
+         
+            <div class="col" id="painel-comparador">
+               <p id="res_comparador" class="plano-local"></p>
 
-         <div class="row painel-body-2 m-2">
-
-            <!-- <div class="col painel-secundario border">
-
-                <p id="res_comparador"></p>
-
-                <span id="basico_barato"></span>
-                <br>
-                <span id="standard_barato"></span>
-                <br>
-                <span id="premium_barato"></span>
-
-            </div> -->
-
-            <div class="col painel-secundario">
-
+               <span id="res_minBasico" class="plano-local"></span>
+               <br />
+               <span id="res_minStandard" class="plano-local"></span>
+               <br />
+               <span id="res_minPremium" class="plano-local"></span>
+            </div>
+       
+            <div class="col" id="painel-extrato">
                <p id="res_nomeOperadoraA" class="plano-local"></p>
 
                <span id="res_basico" class="plano-local"></span>
@@ -65,9 +67,7 @@
                <span id="res_standard_b" class="plano-local"></span>
                <br />
                <span id="res_premium_b" class="plano-local"></span>
-
             </div>
-
 
          </div>
       </section>
