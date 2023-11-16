@@ -12,7 +12,7 @@ body {
    background-attachment: fixed;
 }
 form {
-   margin:15px
+   margin: 15px;
 }
 .section-main {
    display: flex;
@@ -45,18 +45,17 @@ p {
    left: 10;
 }
 
-
 .plano-local {
    color: #ffff;
 }
 
-#id_nomeComparador{
+#id_nomeComparador {
    margin-bottom: 15px;
 }
 /* animação e inputs */
 
 .input-form::-webkit-inner-spin-button,
-.input-form::-webkit-outer-spin-button{
+.input-form::-webkit-outer-spin-button {
    -webkit-appearance: none;
    margin: 0;
 }
@@ -74,12 +73,14 @@ p {
    margin-bottom: 15px;
    background: transparent;
    color: #ffff;
+   width: 100%;
 }
 
 .input-group {
    margin-bottom: 15px;
    margin-top: 15px;
    position: relative;
+   width: 100%;
 }
 
 .input-group label {
@@ -103,29 +104,3 @@ p {
 }
 
 /* ajuste de tela */
-
-@media (max-width: 720px) {
-   #painel-comparador,
-   #painel-extrato,
-   .painel-body {
-      padding: 10px;
-      border-radius: 10px;
-      font-size: 14px;
-      height: 236px;
-   }
-}
-@media (max-width: 625px) {
-   .section-main .row {
-      display: flex;
-      flex-direction: column;
-      ;
-      
-   }
-
-   #painel-comparador,
-   #painel-extrato,
-   .painel-body {
-
-      font-size: 16px;
-   }
-}
