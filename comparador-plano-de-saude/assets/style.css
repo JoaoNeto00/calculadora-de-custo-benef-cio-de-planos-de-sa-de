@@ -27,12 +27,13 @@ form {
    border: 2px solid #ff9d00;
    padding: 15px;
    border-radius: 10px;
+   min-width: fit-content;
 }
 
 #painel-comparador,
 #painel-extrato {
    display: none;
-   height: 263px;
+   height: 270px;
    text-align: center;
    text-wrap: nowrap;
 }
@@ -104,3 +105,13 @@ p {
 }
 
 /* ajuste de tela */
+@media (max-width: 796px) {
+   .section-main {
+      padding: 50px;
+   }
+}
+@media(max-width:412px){
+   .section-main{
+      margin-top: 75px;
+   }
+}
