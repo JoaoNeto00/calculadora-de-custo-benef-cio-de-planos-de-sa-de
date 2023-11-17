@@ -118,6 +118,7 @@ function comparador() {
    for (let i = 0; i < 3; i++) {
 
       if (listPlanoA[i] < listPlanoB[i]) {
+         
          listMinPreco[i] = listPlanoA[i];
 
          if (listPlanoA[i] == listPlanoA[0]) {
@@ -127,7 +128,21 @@ function comparador() {
          } else if (listPlanoA[i] == listPlanoA[2]) {
             listNomePlano[2] = "A";
          }
+
+      } else if(listPlanoA[i] == listPlanoB[i]){
+
+         listMinPreco[i] = listPlanoA[i]
+
+       if (listNomePlano[i] == listNomePlano[0] ) {
+         listNomePlano[0] = 'A E B'
+       } else if(listNomePlano[i] == listNomePlano[1]) {
+         listNomePlano[1] = 'A E B'
+       }else if (listNomePlano[i] == listNomePlano[2]){
+         listNomePlano[2] = 'A E B'
+       }
+
       } else {
+
          listMinPreco[i] = listPlanoB[i];
 
          if (listPlanoB[i] == listPlanoB[0]) {
@@ -137,6 +152,7 @@ function comparador() {
          } else if (listPlanoB[i] == listPlanoB[2]) {
             listNomePlano[2] = "B";
          }
+
       }
    }
 
