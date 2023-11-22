@@ -110,8 +110,24 @@ p {
       padding: 50px;
    }
 }
-@media(max-width:412px){
-   .section-main{
-      margin-top: 75px;
+@media (max-width: 613px) {
+   .section-main .col {
+      height: 270px;
+      max-width: 275px;
+   }
+   .section-main {
+      margin-top: 100px;
+   }
+.section-main .row {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+}
+@media (max-width: 412px) {
+   .section-main {
+      margin-top: 100px;
    }
 }
