@@ -23,7 +23,7 @@ form {
 
 #painel-comparador,
 #painel-extrato,
-.painel-body {
+.painel-main {
    border: 2px solid #ff9d00;
    padding: 15px;
    border-radius: 10px;
@@ -118,13 +118,12 @@ p {
    .section-main {
       margin-top: 100px;
    }
-.section-main .row {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-}
-
+   .section-main .row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+   }
 }
 @media (max-width: 412px) {
    .section-main {
