@@ -50,9 +50,9 @@ function calculoOperadoraA() {
    const idade = dados.idade;
    const imc = Number(calculoIMC());
 
-   const calcBasico = 100 + idade * 10 * (imc / 10); // Plano básico: 100 + (idade * 10 * (IMC / 10)).
-   const calcStandard = (150 + idade * 15) * (imc / 10); // Plano standard: (150 + (idade * 15)) * (IMC / 10).
-   const calcPremium = (200 - imc * 10 + idade * 20) * (imc / 10); // Plano premium: (200 - (IMC * 10) + (idade * 20)) * (IMC / 10).
+   const calcBasico = 100 + (idade * 10) * (imc / 10); // Plano básico: 100 + (idade * 10 * (IMC / 10)).
+   const calcStandard = (150 + (idade * 15)) * (imc / 10); // Plano standard: (150 + (idade * 15)) * (IMC / 10).
+   const calcPremium = (200 - (imc * 10) + (idade * 20)) * (imc / 10); // Plano premium: (200 - (IMC * 10) + (idade * 20)) * (IMC / 10).
 
    const planoBasico = calcBasico;
    const planoStandard = calcStandard;
@@ -67,9 +67,9 @@ function calculoOperadoraB() {
    const imc = Number(calculoIMC());
    const ftComorbidade = fatorComorbidade(imc);
 
-   const calcBasico = 100 + ftComorbidade * 10 * (imc / 10); //Plano básico: 100 + (fator de comorbidade * 10 * (IMC / 10)).
-   const calcStandard = (150 + ftComorbidade * 15) * (imc / 10); //Plano standard: (150 + (fator de comorbidade * 15)) * (IMC / 10).
-   const calcPremium = 200 - imc * 10 + ftComorbidade * 20 * (imc / 10); //Plano premium: (200 - (IMC * 10) + (fator de comorbidade * 20)) * (IMC / 10).
+   const calcBasico = 100 + (ftComorbidade * 10 * (imc / 10)); //Plano básico: 100 + (fator de comorbidade * 10 * (IMC / 10)).
+   const calcStandard = (150 + (ftComorbidade * 15)) * (imc / 10); //Plano standard: (150 + (fator de comorbidade * 15)) * (IMC / 10).
+   const calcPremium = (200 - (imc * 10) + (ftComorbidade * 20)) * (imc / 10); //Plano premium: (200 - (IMC * 10) + (fator de comorbidade * 20)) * (IMC / 10).
 
    const planoBasico = calcBasico;
    const planoStandard = calcStandard;
