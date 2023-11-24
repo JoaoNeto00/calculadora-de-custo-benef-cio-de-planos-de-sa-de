@@ -1,20 +1,27 @@
 function calcular() {
-   let display_extrato = document.getElementById("painel-extrato");
-   let display_comparador = document.getElementById("painel-comparador");
+   if (document.getElementById("idade").value == "") {
+      alert("preencha o campo idade");
+   } else if (document.getElementById("altura").value == "") {
+      alert("preencha o campo altura");
+   } else if (document.getElementById("peso").value == "") {
+      alert("preencha o campo peso");
+   } else {
+      let display_extrato = document.getElementById("painel-extrato");
+      let display_comparador = document.getElementById("painel-comparador");
 
-   if (display_extrato.style.display === "none" || display_extrato.style.display === "") {
-      display_extrato.style.display = "block";
-   } else {
+      if (display_extrato.style.display === "none" || display_extrato.style.display === "") {
+         display_extrato.style.display = "block";
+      } else {
+      }
+      if (display_comparador.style.display === "none" || display_comparador.style.display === "") {
+         display_comparador.style.display = "block";
+      } else {
+      }
+
+      calculoOperadoraA();
+      calculoOperadoraB();
+      mostrarComparador();
    }
-   if (display_comparador.style.display === "none" || display_comparador.style.display === "") {
-      display_comparador.style.display = "block";
-   } else {
-   }
-   calculoOperadoraA()
-   calculoOperadoraB()
-   mostrarComparador()
-   mostrarDados()
-   
 }
 
 function capturarDados() {
@@ -43,10 +50,10 @@ function calculoOperadoraA() {
    const idade = dados.idade;
    const imc = Number(calculoIMC());
 
-   const calcBasico = 100 + (idade * 10) * (imc / 10);   // Plano básico: 100 + (idade * 10 * (IMC / 10)).
-	const calcStandard = (150 + (idade * 15)) * (imc / 10); // Plano standard: (150 + (idade * 15)) * (IMC / 10).
-   const calcPremium = (200 - (imc * 10) + (idade * 20)) * (imc / 10);// Plano premium: (200 - (IMC * 10) + (idade * 20)) * (IMC / 10).
-   
+   const calcBasico = 100 + idade * 10 * (imc / 10); // Plano básico: 100 + (idade * 10 * (IMC / 10)).
+   const calcStandard = (150 + idade * 15) * (imc / 10); // Plano standard: (150 + (idade * 15)) * (IMC / 10).
+   const calcPremium = (200 - imc * 10 + idade * 20) * (imc / 10); // Plano premium: (200 - (IMC * 10) + (idade * 20)) * (IMC / 10).
+
    const planoBasico = calcBasico;
    const planoStandard = calcStandard;
    const planoPremium = calcPremium;
@@ -60,9 +67,9 @@ function calculoOperadoraB() {
    const imc = Number(calculoIMC());
    const ftComorbidade = fatorComorbidade(imc);
 
-   const calcBasico = 100 + (ftComorbidade * 10) * (imc / 10); //Plano básico: 100 + (fator de comorbidade * 10 * (IMC / 10)).
-   const calcStandard = (150 + (ftComorbidade * 15)) * (imc / 10);//Plano standard: (150 + (fator de comorbidade * 15)) * (IMC / 10).
-   const calcPremium = (200 - (imc * 10) + (ftComorbidade * 20) * (imc / 10)); //Plano premium: (200 - (IMC * 10) + (fator de comorbidade * 20)) * (IMC / 10).
+   const calcBasico = 100 + ftComorbidade * 10 * (imc / 10); //Plano básico: 100 + (fator de comorbidade * 10 * (IMC / 10)).
+   const calcStandard = (150 + ftComorbidade * 15) * (imc / 10); //Plano standard: (150 + (fator de comorbidade * 15)) * (IMC / 10).
+   const calcPremium = 200 - imc * 10 + ftComorbidade * 20 * (imc / 10); //Plano premium: (200 - (IMC * 10) + (fator de comorbidade * 20)) * (IMC / 10).
 
    const planoBasico = calcBasico;
    const planoStandard = calcStandard;
@@ -74,27 +81,26 @@ function calculoOperadoraB() {
 }
 
 function fatorComorbidade(imc) {
-
    if (imc < 18.5) {
-      classificacao = 'Baixo peso'
+      classificacao = "Baixo peso";
       return 10;
    } else if (imc >= 18.5 && imc <= 24.9) {
-      classificacao = 'Normal'
+      classificacao = "Normal";
       return 1;
    } else if (imc >= 25 && imc <= 29.9) {
-      classificacao = 'Sobrepeso'
+      classificacao = "Sobrepeso";
       return 6;
    } else if (imc >= 30 && imc <= 34.9) {
-      classificacao = 'Obesidade'
+      classificacao = "Obesidade";
       return 10;
    } else if (imc >= 35 && imc <= 39.9) {
-      classificacao = 'Obesidade Mórbida'
+      classificacao = "Obesidade Mórbida";
       return 20;
    } else if (imc > 40) {
-      classificacao = 'Obesidade Mórbida muito grave'
+      classificacao = "Obesidade Mórbida muito grave";
       return 30;
    } else {
-      alert('erro fator comorbidade')
+      console("erro comorbidae");
    }
 }
 
@@ -116,9 +122,7 @@ function comparador() {
    let listNomePlano = [];
 
    for (let i = 0; i < 3; i++) {
-
       if (listPlanoA[i] < listPlanoB[i]) {
-         
          listMinPreco[i] = listPlanoA[i];
 
          if (listPlanoA[i] == listPlanoA[0]) {
@@ -128,21 +132,17 @@ function comparador() {
          } else if (listPlanoA[i] == listPlanoA[2]) {
             listNomePlano[2] = "A";
          }
+      } else if (listPlanoA[i] == listPlanoB[i]) {
+         listMinPreco[i] = listPlanoA[i];
 
-      } else if(listPlanoA[i] == listPlanoB[i]){
-
-         listMinPreco[i] = listPlanoA[i]
-
-       if (listNomePlano[i] == listNomePlano[0] ) {
-         listNomePlano[0] = 'A E B'
-       } else if(listNomePlano[i] == listNomePlano[1]) {
-         listNomePlano[1] = 'A E B'
-       }else if (listNomePlano[i] == listNomePlano[2]){
-         listNomePlano[2] = 'A E B'
-       }
-
+         if (listNomePlano[i] == listNomePlano[0]) {
+            listNomePlano[0] = "A E B";
+         } else if (listNomePlano[i] == listNomePlano[1]) {
+            listNomePlano[1] = "A E B";
+         } else if (listNomePlano[i] == listNomePlano[2]) {
+            listNomePlano[2] = "A E B";
+         }
       } else {
-
          listMinPreco[i] = listPlanoB[i];
 
          if (listPlanoB[i] == listPlanoB[0]) {
@@ -152,7 +152,6 @@ function comparador() {
          } else if (listPlanoB[i] == listPlanoB[2]) {
             listNomePlano[2] = "B";
          }
-
       }
    }
 
@@ -161,23 +160,6 @@ function comparador() {
    const minPremium = `plano premium ${listNomePlano[2]} - R$ ${listMinPreco[2].toFixed(2)}`;
 
    return { minBasico, minStandard, minPremium };
-}
-
-function mostrarDados() {
-
-   const imc = calculoIMC();
-   const ftComorbidade  = fatorComorbidade(imc)
-
-   const localIMC = document.getElementById("id_imc");
-   localIMC.innerHTML = `IMC - ${imc}`;
-   
-   const localClassificacao = document.getElementById('id_classificacao')
-   localClassificacao.innerHTML = `classificação - ${classificacao}`;
-
-   const localftComorbidade = document.getElementById("id_comorbidade");
-   localftComorbidade.innerHTML = `comorbidade - ${ftComorbidade}`;
-
-
 }
 
 function mostrarOpA(planoBasico, planoStandard, planoPremium) {
@@ -189,15 +171,15 @@ function mostrarOpA(planoBasico, planoStandard, planoPremium) {
    localMostrarNome.innerHTML = "Operadora A";
 
    const localPlanoBasico = document.getElementById("id_basico");
-   localPlanoBasico.innerHTML = `plano basico: R$ ${valorBasico.toString().replace( ".", "," )}`;
+   localPlanoBasico.innerHTML = `plano basico: R$ ${valorBasico.toString().replace(".", ",")}`;
    const localPlanoStandard = document.getElementById("id_standard");
-   localPlanoStandard.innerHTML = `plano standard: R$ ${valorStandard.toString().replace( ".", "," )}`;
+   localPlanoStandard.innerHTML = `plano standard: R$ ${valorStandard.toString().replace(".", ",")}`;
    const localPlanoPremium = document.getElementById("id_premium");
-   localPlanoPremium.innerHTML = `plano premium: R$ ${valorPremium.toString().replace( ".", "," )}`;
+   localPlanoPremium.innerHTML = `plano premium: R$ ${valorPremium.toString().replace(".", ",")}`;
 }
 
 function mostrarOpB(planoBasico, planoStandard, planoPremium) {
-   const valorBasico = planoBasico.toFixed(2)
+   const valorBasico = planoBasico.toFixed(2);
    const valorStandard = planoStandard.toFixed(2);
    const valorPremium = planoPremium.toFixed(2);
 
@@ -205,28 +187,27 @@ function mostrarOpB(planoBasico, planoStandard, planoPremium) {
    MostrarNome.innerHTML = "Operadora B";
 
    const localPlanoBasico = document.getElementById("id_basico_b");
-   localPlanoBasico.innerHTML = `plano basico: R$ ${valorBasico.toString().replace( ".", "," )}`;
+   localPlanoBasico.innerHTML = `plano basico: R$ ${valorBasico.toString().replace(".", ",")}`;
    const localPlanoStandard = document.getElementById("id_standard_b");
-   localPlanoStandard.innerHTML = `plano standard: R$ ${valorStandard.toString().replace( ".", "," )}`;
+   localPlanoStandard.innerHTML = `plano standard: R$ ${valorStandard.toString().replace(".", ",")}`;
    const localPlanoPremium = document.getElementById("id_premium_b");
-   localPlanoPremium.innerHTML = `plano premium: R$ ${valorPremium.toString().replace( ".", "," )}`;
+   localPlanoPremium.innerHTML = `plano premium: R$ ${valorPremium.toString().replace(".", ",")}`;
 }
 
 function mostrarComparador() {
-
    const dadosComparador = comparador();
 
    const minBasico = dadosComparador.minBasico;
    const minStandard = dadosComparador.minStandard;
    const minPremium = dadosComparador.minPremium;
 
-   const mostraNome = document.getElementById('id_nomeComparador')
-   mostraNome.innerHTML = "comparador"
+   const mostraNome = document.getElementById("id_nomeComparador");
+   mostraNome.innerHTML = "comparador";
 
    const localMinBasico = document.getElementById("id_minBasico");
-   localMinBasico.innerHTML = minBasico.toString().replace( ".", "," );
+   localMinBasico.innerHTML = minBasico.toString().replace(".", ",");
    const localMinStandard = document.getElementById("id_minStandard");
-   localMinStandard.innerHTML = minStandard.toString().replace( ".", "," );
+   localMinStandard.innerHTML = minStandard.toString().replace(".", ",");
    const localMinPremium = document.getElementById("id_minPremium");
-   localMinPremium.innerHTML = minPremium.toString().replace( ".", "," );
+   localMinPremium.innerHTML = minPremium.toString().replace(".", ",");
 }

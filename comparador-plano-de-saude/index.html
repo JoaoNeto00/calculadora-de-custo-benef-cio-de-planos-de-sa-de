@@ -14,7 +14,7 @@
             <div class="col painel-main">
                <form action="">
                   <div class="input-group">
-                     <input type="number" class="input-form" id="idade" value="20" required />
+                     <input type="number" class="input-form" id="idade" required />
                      <label for="idade">idade</label>
                   </div>
 
@@ -23,7 +23,6 @@
                         type="text"
                         class="input-form"
                         id="altura"
-                        value="1.5"
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                         required
                      />
@@ -35,7 +34,6 @@
                         type="text"
                         class="input-form"
                         id="peso"
-                        value="80"
                         oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
                         required
                      />
@@ -62,17 +60,16 @@
                <span id="id_minStandard" class="plano-local"></span>
                <br />
                <span id="id_minPremium" class="plano-local"></span>
-               <br/>
-               <br>
+               <br />
+               <br />
                <span id="id_imc" class="plano-local"></span>
-               <br/>
+               <br />
                <span id="id_classificacao" class="plano-local"></span>
-               <br>
+               <br />
                <span id="id_comorbidade" class="plano-local"></span>
             </div>
 
             <div class="col" id="painel-extrato">
-
                <p id="id_nomeOperadoraA" class="plano-local"></p>
 
                <span id="id_basico" class="plano-local"></span>
